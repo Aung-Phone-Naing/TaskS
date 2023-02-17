@@ -25,6 +25,13 @@ public class Main {
 
     }
 
+    private static int countDeadlinesUsingStream(ArrayList<Task> tasks) {
+        int count = (int) tasks.stream()
+                .filter(t -> t instanceof Deadline)
+                .count(); // take note count returns a long so need to cast to int
+
+        return count;
+    }
     private static int countDeadlines(ArrayList<Task> tasksData) {
         int count = 0;
         for (Task t : tasksData) {
